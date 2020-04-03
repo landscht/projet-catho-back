@@ -4,7 +4,7 @@ jdk:
 script:
   - ./mvnw test
 cache:
-  directories:
+ directories:
     - '$HOME/.m2/repository'
 deploy:
  provider: heroku
