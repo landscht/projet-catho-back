@@ -2,11 +2,13 @@ package com.example.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/coll")
@@ -51,5 +53,23 @@ public class CollaborateurController {
     @PutMapping("/updateById")
     public @ResponseBody Collaborateur updateById(@RequestBody Collaborateur collaborateur) {
         return collaborateurRepository.save(collaborateur);
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping("/getById")
+    public ResponseEntity getById(@RequestParam long id) {
+        Optional<Collaborateur> optional = collaborateurRepository.findById(id);
+        if(optional.isPresent()) {
+            return ResponseEntity.ok(optional.get());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping("/getAllByYear")
+    public ResponseEntity getAllByYear(@RequestParam int year) {
+        Iterable<Collaborateur> collaborateurs = collaborateurRepository.getAllByYear(year);
+        return ResponseEntity.ok(collaborateurs);
     }
 }

@@ -11,4 +11,6 @@ public interface CollaborateurRepository extends CrudRepository<Collaborateur, L
     public Iterable<String> getAllMatricule();
 
     public Iterable<Collaborateur> getAllByMatricule(String matricule);
+
+    public Iterable<Collaborateur> getAllByYear(int year);
 }

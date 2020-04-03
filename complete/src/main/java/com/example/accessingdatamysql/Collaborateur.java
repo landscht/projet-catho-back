@@ -16,6 +16,7 @@ public class Collaborateur {
     private String prenom;
     private String matricule;
     private Date date_entree;
+    private Date debut_periode;
     private Date date_sortie;
     private float heure_hebdomadaire;
     private int year;
@@ -244,5 +245,13 @@ public class Collaborateur {
 
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
+    }
+
+    public Date getDebut_periode() {
+        return debut_periode;
+    }
+
+    public void setDebut_periode(Date debut_periode) {
+        this.debut_periode = debut_periode;
     }
 }
