@@ -1,9 +1,6 @@
-package com.example.accessingdatamysql;
+package com;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
-import com.example.accessingdatamysql.User;
 import org.springframework.stereotype.Repository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
