@@ -1,4 +1,4 @@
-package com;
+/*package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,3 +41,4 @@ public class MainController {
 		return userRepository.findAll();
 	}
 }
+*/

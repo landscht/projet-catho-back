@@ -1,4 +1,4 @@
-package com;
+/*package com;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,3 +27,4 @@ public class User {
 		this.passwd = passwd;
 	}
 }
+*/
