@@ -1,13 +1,13 @@
 language: java
 jdk:
- - oraclejdk11
+- oraclejdk11
 script:
-  - ./mvnw test
+- "./mvnw test"
 cache:
   directories:
-    - '$HOME/.m2/repository'
+  - "$HOME/.m2/repository"
 deploy:
- provider: heroku
- api-key:
-  secure: $HEROKU_API_KEY
- app: projet-catho-back
+  provider: heroku
+  app: projet-catho-back
+  api_key:
+    secure: iMUUHTCdt/xOa9B1EpRyeGOWbcI8zuBibu8GV9zNcwQZx/f+/iTxUS1A2+bGJH37KvBWKGvqOnyrTZLbSLriZ+6k/S5Nr+L/1Vhv8tNptFlw7+mMLU44CqRbH6BArAr209RKrubSswryzmZqi8makT2KH4YFDQ5FeUSN9qKsXFCkRcTmDMrI8ljh6kgDzXvSJjZs9BB2FOZZgIr6n0Dxgaj83roeQqkk/RX+qV8XTgNqPxe7s+66XCDGPzw8Xh34/A/p6I0v38CtyKkHPUwK2i70QqZNrmAcQLburxj3w2FHNMTHm1MJ4BWKcx3munnbVCT/60B+P+DIHhBMU9s+AMFafu9ClZ8JGU+3SLul542JhYcNFmdxHMqwYHL93TOMYa+jWpq8tmKNIqoSYwY4XGZGbtX6FiW/z31ixxc/1egp5J0iJ92/ogEvasgJeUuC6+YZ7ZZYrgqJlCxwWEbHSqBCIZjIG/r5q22ZtMjzAqeWtKBziBWz9GUgYxT6aRrTJ9JCCUN+n5TrACdX1c5trV+/kH1OOuUS3gK9dJXpzPWwCpcYXDScwF4itiLAXEMpWZPi3f1G0x3PwrgvfWsrOROskD8X1yJZTO6IR37GXyRKcbS4tbUrpY4u+aL2V0BkBkEzF1UrbMVwM+zRicFzsBy/oO2AgHBZbeGt55MrevY=
