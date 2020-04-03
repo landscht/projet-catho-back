@@ -9,5 +9,5 @@ cache:
 deploy:
  provider: heroku
  api-key:
-  secure: 'ab795dd7-b09a-4157-a6c6-a2b3f1f7ed89'
+  secure: $HEROKU_API_KEY
  app: projet-catho-back
