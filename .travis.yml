@@ -4,8 +4,8 @@ jdk:
 script:
 - "./mvnw test"
 cache:
-  directories:
-  - "$HOME/.m2/repository"
+ directories:
+    - '$HOME/.m2/repository'
 deploy:
   provider: heroku
   app: projet-catho-back
