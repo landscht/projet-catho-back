@@ -1,8 +1,11 @@
-package com;
+package com.controllers;
 
+import com.models.Collaborateur;
+import com.repository.CollaborateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,7 @@ public class CollaborateurController {
 
     @CrossOrigin(origins = {"http://localhost:8080","https://projet-catho-front.herokuapp.com"})
     @GetMapping("/getAll")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public @ResponseBody Iterable<Collaborateur> getAll() {
         return collaborateurRepository.findAll();
     }
