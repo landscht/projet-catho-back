@@ -27,7 +27,6 @@ public class CollaborateurController {
 
     @CrossOrigin(origins = {"http://localhost:8080","https://projet-catho-front.herokuapp.com"})
     @GetMapping("/getAll")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public @ResponseBody Iterable<Collaborateur> getAll() {
         return collaborateurRepository.findAll();
     }
