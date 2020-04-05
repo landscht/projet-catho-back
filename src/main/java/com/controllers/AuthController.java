@@ -11,6 +11,8 @@ import com.repository.RoleRepository;
 import com.repository.UserRepository;
 import com.security.jwt.JwtUtils;
 import com.security.services.UserDetailsImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,6 +34,8 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/api/auth")
 public class AuthController {
 
+    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -52,7 +56,6 @@ public class AuthController {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
@@ -69,6 +72,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
